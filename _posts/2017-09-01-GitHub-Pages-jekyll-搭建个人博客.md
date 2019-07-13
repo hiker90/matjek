@@ -8,6 +8,7 @@ comments: 0
 ---
 
 如果你想有一个简单的个人站点写写博客，而又不想注册域名、空间等等，用 GitHub Pages + Jekyll 搭建静态站点是个不错的选择。轻量级的博客系统，没有麻烦的配置；使用标记语言，比如 Markdown，可以轻松推送文章；无需自己搭建服务器，根据Github的限制，对应的每个站有300MB空间；如果希望，还可以绑定自己的域名。下面的 win7 32bit OS 建站过程是最基础的，进阶用法需要进一步掌握 Jekyll 等知识。<!--more-->
+
 ## 知识储备
 - [Git 的基本操作](https://blog.jobbole.com/78960/)
 - [markdown 标记语言](https://hiker90.github.io/2017/08/30/Markdown-%E5%85%A5%E9%97%A8/)
