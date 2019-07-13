@@ -1,0 +1,52 @@
+---
+layout: post
+title: 响应式页面的基本写法
+---
+
+> 创建通用非响应式页面，可以将页面设置固定宽度，完成后添加媒体查询（@media）及响应代码。
+
+### viewport 
+例如：
+
+<div class="highlight"><pre>
+// 屏幕1:1显示，阻止用户缩放
+<span class="k"><meta </span><span class="vi">name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"</span><span class="k">></span>
+// 用来指定IE8浏览器去模拟chrome内核的渲染方式
+<span class="k"><meta </span><span class="vi">http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"</span><span class="k">></span>
+// 针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓
+<span class="k"><meta </span><span class="vi">name="HandheldFriendly" content="true"</span><span class="k">></span>
+</pre></div>
+
+### 媒体查询（media query）
+
+> 使用媒体查询可以针对不同的媒体类型定义不同的样式。  
+
+常用的属性包括 屏幕宽度 和 屏幕方向，例如：
+    
+<div class="highlight"><pre>
+// ipad
+<span class="k">@media</span> only <span class="no">screen</span> and (<span class="no">min-width:768px</span>)and (<span class="no">max-width:1024px</span>){}
+// iphone
+<span class="k">@media </span>only <span class="no">screen</span> and (<span class="no">width:320px</span>)and (<span class="no">width:768px</span>){}
+</pre></div>
+    
+1. @media 语法：
+    
+    <div class="highlight"><pre>
+    <span class="k">@media</span> <span class="no">mediatype</span> and|not|only (<span class="no">media feature</span>) {CSS-Code;}</pre></div>
+        
+2. mediatype 媒体类型最常见的 screen，用于电脑屏幕，平板电脑，智能手机等。  
+3. 逻辑关系包括 and：与，not：非，和 only：仅限于。  
+4. media feature 媒体属性，常见的包括尺寸属性，如例子中的 min-width 和 max-width;  
+
+    - 屏幕方向（屏幕高宽的关系）orientation属性，表示输出设备中的页面可见区域高度是否大于或等于宽度。它的值有两个，portrait 指竖屏；landscape 指横屏。
+
+### 内容处理
+#### 页面元素的尺寸  
+px像素应该是最常用的尺寸单位。响应式页面可以选用定比缩放，百分比尺寸设置等方法，css3引入了rem，更好的保证响应式页面中元素的相对比例更加协调，更方便于响应式开发。
+    - rem —— 相对于根元素的字体大小的单位，一般在 html 中设置根字体大小
+    - em —— 相对于父元素的字体大小的单位
+
+### 技巧
+图片，容器等尺寸设置，宜灵活得使用 max-width， min-width，宽高 100% 或 auto等方法；背景图片的 background-size属性，可以设置 cover（等比扩展填充，有时超出部分被隐藏）、contain（等比填充不扩展，有时尺寸较短方向会留白）。
+ 
