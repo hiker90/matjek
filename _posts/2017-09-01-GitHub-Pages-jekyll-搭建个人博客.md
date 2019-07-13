@@ -1,6 +1,12 @@
 ---
 layout: post
+title:  "Github pages + Jekyll 搭建静态网站"
+date:   2017-01-23 01:30:13 +0800
+categories: 部署
+tags: Jekyll
+comments: 0
 ---
+
 如果你想有一个简单的个人站点写写博客，而又不想注册域名、空间等等，用 GitHub Pages + Jekyll 搭建静态站点是个不错的选择。轻量级的博客系统，没有麻烦的配置；使用标记语言，比如 Markdown，可以轻松推送文章；无需自己搭建服务器，根据Github的限制，对应的每个站有300MB空间；如果希望，还可以绑定自己的域名。下面的 win7 32bit OS 建站过程是最基础的，进阶用法需要进一步掌握 Jekyll 等知识。<!--more-->
 ## 知识储备
 - [Git 的基本操作](https://blog.jobbole.com/78960/)
@@ -16,32 +22,32 @@ layout: post
     - [Git](http://git-scm.com/)
 3. 配置 SSH
     1. 打开 “Git Bash”，输入命令检查本机现有的 ssh key：
-        
+
             $ cd ~/.ssh
 
         如果 “No such file or directory”，说明你第一次使用 git，跳过步骤2。
-    
+
     2. 如果已经存在 ssh key，备份和移除原来的 ssh key：
-        
+
             $ ls
             输出示例：config  id_rsa  id_rsa.pub  known_hosts
             $ mkdir key_backup
             $ cp id_rsa* key_backup
             $ rm id_rsa*
-    
+
     3. 生成新的 SSH Key
-            
+
             $ ssh-keygen -t rsa -C "你的邮件地址@youremail.com"
             Generating public/private rsa key pair.
             Enter file in which to save the key (/Users/your_user_directory/.ssh/id_rsa):<回车就好>
-        
+
         系统可能要求你输入加密字符串（Passphrase，git 的每次 pull 和 push 操作都要求此验证）：
-            
+
             Enter passphrase (empty for no passphrase):<输入加密串>
             Enter same passphrase again:<再次输入加密串>
 
         最后，看到 “The key's randomart image is: ” + 图形，设置成功了。
-    
+
     4. 添加 SSH Key 到 GitHub
 
         - 在上一步骤，敲回车的地方，找到 id_rsa.pub 文件的存放路径，找到这个文件，并用记事本打开，复制。
@@ -50,19 +56,19 @@ layout: post
         - “Git Bash” 输入命令
                 $ ssh -T git@github.com
         可能看到下列结果：
-                
+
                 The authenticity of host 'github.com (207.97.227.239)' can't be established.
                 RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.
                 Are you sure you want to continue connecting (yes/no)?
-        
+
             输入`yes`，回车即可
-            
+
                 Hi <em>username</em>! You've successfully authenticated, but GitHub does not provide shell access.
 
             设置成功。
 
 4. 设置 Git 账号信息
-    
+
             $ git config --global user.name "你的名字"
             $ git config --global user.email "你的邮箱@youremail.com"
 
@@ -84,14 +90,3 @@ GitHub Pages 分两种
 5. 推送的文章一般位于 “_post” 文件夹下，命名及书写规则一般参照里面的模板，如我的是 “2017-08-30-文章名称.markdown”；每次文章更新，就可以通过 Git 推送了。
 
 至此，一个基于 GitHub Pages + Jekyll 的页面就搭建完成了，学习更多关于 Git、Jekyll、Markdown 以及其他 web 知识，探索更新鲜的玩儿法。
-
-
-
-
-
-
-
-
-
-
-

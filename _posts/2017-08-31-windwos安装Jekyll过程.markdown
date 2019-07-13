@@ -1,6 +1,12 @@
 ---
 layout: post
+title:  "Windows 安装 Jekyll 过程"
+date:   2017-01-23 01:30:13 +0800
+categories: 部署
+tags: Jekyll
+comments: 0
 ---
+
 Jekyll 是一个静态网站生成工具，用户可以使用 HTML、Markdown 或 Textile ，通过模板引擎Liquid（Liquid Templating Engine）来建立静态页面.这个博客就是 GitHub Pages + Jekyll 搭建起来的。下面是我安装 Jekyll 的过程，Windows 32bit OS。<!--more-->
 
 ## 基本安装步骤
@@ -20,7 +26,7 @@ Jekyll 是一个静态网站生成工具，用户可以使用 HTML、Markdown �
 2. 选择相应版本的 “RubyInstallers” 进行下载（主要是区分好32/64位版本）。**不要关闭页面，下面还会用到**。
 3. 安装时宜选择默认的路径如 “C:\Ruby23”，因为安装包明确提出“请不要使用带有空格的文件夹”（如：Program Files）；勾选 “Add Ruby executables to your PATH”。
 4. 检测是否安装成功。“win + R”快捷键输入 cmd，打开控制台输入：`ruby -v`。    
-        
+
         输出示例如下：
             ruby 2.3.3p222 <2016-11-21 revision 56859> [i386-mingw32]
 
@@ -30,17 +36,17 @@ Jekyll 是一个静态网站生成工具，用户可以使用 HTML、Markdown �
 2. 下载同已安装Ruby版本相对应的 DevKit 安装包。目前为4.7.2版本，区分好32/64位即可。
 3. 运行程序解压文件至某路径（我的是C:\DevKit）
 4. 初始化创建 config.yml 文件。在控制台窗口，依次输入：
-    
+
         cd “C:\DevKit”  //定位某磁盘文件夹命令，“”内填步骤3程序包路径
         ruby dk.rb init
         notepad config.yml
 
 5. 上一步完成会打开记事本窗口，文件末尾添加一行 `- C:\Ruby23` (ruby 安装路径)，保存退出。
 6. 检查安装。控制台输入：
-        
+
         ruby dk.rb review
         ruby dk.rb install
-        
+
 ### 三、安装 Jekyll
 
 1. 检测 gem 安装。控制台输入 `gem -v`，输出版本号如 `2.5.2`。
@@ -49,7 +55,7 @@ Jekyll 是一个静态网站生成工具，用户可以使用 HTML、Markdown �
         gem install bundler
 
 2. 安装 Jekyll gem，控制台输入：
-        
+
         gem install jekyll
 
 ### 四、安装 Pygments
@@ -68,7 +74,7 @@ Jekyll 是一个静态网站生成工具，用户可以使用 HTML、Markdown �
 2. 安装 Easy Install
     1. 我搜的下载地址（win7 32位）<https://bootstrap.pypa.io/ez_setup.py>
     2. 文件下载保存，如我存在 c:\ 根目录下，控制台输入命令
-            
+
             python "C:\ez_setup.py"
 
     3. 安装完成后，参考上一步添加 PATH 的方法，添加 “Python Scripts” 路径(如： C:\Python27\Scripts)至 PATH。
@@ -92,8 +98,6 @@ Jekyll 是一个静态网站生成工具，用户可以使用 HTML、Markdown �
 
 - 控制台输入`gem sources -l`查看 ruby 默认源；
 - 我看到的方法是将sources 改为 *淘宝源* 或 *ruby-china* 。使用命令：
-        
+
         gem sources -r https://rubygems.org/    （删除默认）
         gem sources -a http://gems.ruby-china.org    （添加ruby-china，注意http没有s）
-
-
