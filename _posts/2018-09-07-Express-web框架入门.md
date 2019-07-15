@@ -9,17 +9,17 @@ comments: 1
 
 学习使用express-generator搭建express框架的web项目。<!--more-->
 
->在开始之前，本机已经安装并配置好[node.js-download][]开发环境，安装步骤参考[node.js安装教程][]。
+>在开始之前，本机已经安装并配置好 [node.js][node.js-download] 开发环境，安装步骤参考 [node.js安装教程][node.js-doc]。
 
 ## 安装express生成器
 
-{% highlight %}
+{% highlight ruby %}
 $ sudo npm install express-generator -g
 {% endhighlight %}
 
 直接运行 express 命令，将使用 Jade 视图引擎和纯 CSS 在当前目录中创建项目。
 
-{% highlight %}
+{% highlight ruby %}
 $ express
 {% endhighlight %}
 
@@ -32,13 +32,13 @@ $ express
 
 1 安装依赖
 
-{% highlight %}
+{% highlight ruby %}
 $ npm install
 {% endhighlight %}
 
 2 运行项目
 
-{% highlight %}
+{% highlight ruby %}
 $ npm start
 {% endhighlight %}
 
@@ -53,7 +53,7 @@ $ npm start
 - app.js - 创建一个 express 应用对象，通过各种设置选项和中间件来设置这个应用，然后从该模块中导出。
 
   1 引入一些实用 node 库
-  {% highlight %}
+  {% highlight ruby %}
   var express = require('express');
   var createError = require('http-errors');
   var logger = require('morgan');
@@ -62,28 +62,28 @@ $ npm start
   {% endhighlight %}
 
   2 引入模板/文件用于处理路由（这些路由文件一般存放于 routes 文件夹）
-  {% highlight %}
+  {% highlight ruby %}
   var indexRouter = require('./routes/index');
   var usersRouter = require('./routes/users');
   {% endhighlight %}
 
   3 app.use() 把（之前导入的）路由处理器添加到请求处理链中
-  {% highlight %}
+  {% highlight ruby %}
   app.use('/', indexRouter);
   app.use('/users', usersRouter);
   {% endhighlight %}
 
   4 进行一些 http 请求的通用配置
-  {% highlight %}
+
+  {% highlight ruby %}
   app.all('*',function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
     res.header("Access-Control-Allow-Credentials", "true");
     res.header('Access-Control-Allow-Headers', 'Content-Type, Content-Length, Authorization, Accept, X-Requested-With , yourHeaderFeild');
     res.header('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, OPTIONS');
     res.header("X-Powered-By",' 3.2.1')
-    //res.header("Content-Type", "application/json;charset=utf-8");
     if (req.method == 'OPTIONS') {
-      res.send(200); //让options请求快速返回/
+      res.send(200);
     }
     else {
       next();
@@ -97,5 +97,5 @@ $ npm start
 
 - /public 存放css、js、resource等资源文件
 
-[node.js]: https://nodejs.org/zh-cn/
-[node.js安装教程]:   https://developer.mozilla.org/zh-CN/docs/Learn/Server-side/Express_Nodejs/development_environment
+[node.js-download]: https://nodejs.org/zh-cn/
+[node.js-doc]:   https://developer.mozilla.org/zh-CN/docs/Learn/Server-side/Express_Nodejs/development_environment
