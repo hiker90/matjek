@@ -52,6 +52,7 @@ $ npm start
 应用入口文件。它 require 了根目录下的 app.js ，app.js会设置并返回 express 应用对象；port 设置当前应用运行端口。
 #### app.js
 创建一个 express 应用对象，通过各种设置选项和中间件来设置这个应用，然后从该模块中导出。
+
   1 引入一些实用 node 库
     {% highlight ruby %}
     var express = require('express');
@@ -89,7 +90,7 @@ $ npm start
       }
     });
     {% endhighlight %}
-    
+
 #### /routes/xxx.js
 配置路由，send() 或 sendFile() 定义响应内容
 #### /views
