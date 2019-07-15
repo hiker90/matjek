@@ -99,4 +99,3 @@ $ npm start
 
 [node.js]: https://nodejs.org/zh-cn/
 [node.js安装教程]:   https://developer.mozilla.org/zh-CN/docs/Learn/Server-side/Express_Nodejs/development_environment
-[jekyll-talk]: https://talk.jekyllrb.com/
