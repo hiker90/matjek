@@ -47,11 +47,8 @@ $ npm start
 ## 目录结构
 
 - package.json - 定义了项目基础信息及依赖列表；其中 scripts 中定义运行项目的 npm 命令，默认为"start"。
-
 - /bin/www - 应用入口文件。它 require 了根目录下的 app.js ，app.js会设置并返回 express 应用对象；port 设置当前应用运行端口。
-
 - app.js - 创建一个 express 应用对象，通过各种设置选项和中间件来设置这个应用，然后从该模块中导出。
-
   1 引入一些实用 node 库
   {% highlight ruby %}
   var express = require('express');
@@ -60,21 +57,17 @@ $ npm start
   var cookieParser = require('cookie-parser');
   var path = require('path');
   {% endhighlight %}
-
   2 引入模板/文件用于处理路由（这些路由文件一般存放于 routes 文件夹）
   {% highlight ruby %}
   var indexRouter = require('./routes/index');
   var usersRouter = require('./routes/users');
   {% endhighlight %}
-
   3 app.use() 把（之前导入的）路由处理器添加到请求处理链中
   {% highlight ruby %}
   app.use('/', indexRouter);
   app.use('/users', usersRouter);
   {% endhighlight %}
-
   4 进行一些 http 请求的通用配置
-
   {% highlight ruby %}
   app.all('*',function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
@@ -90,11 +83,8 @@ $ npm start
     }
   });
   {% endhighlight %}
-
 - /routes/xxx.js - 配置路由，send() 或 sendFile() 定义响应内容
-
 - /views 页面模板
-
 - /public 存放css、js、resource等资源文件
 
 [node.js-download]: https://nodejs.org/zh-cn/
