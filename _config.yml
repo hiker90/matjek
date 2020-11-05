@@ -20,7 +20,7 @@ baseurl: "/blog"
 url: "https://hiker90.github.io"
 permalink: /:year/:month/:day/:title
 repository: hiker90/blog
-paginate: 5
+paginate: 10
 
 # hiker90 specific configurations
 github_profile: "https://github.com/hiker90"
